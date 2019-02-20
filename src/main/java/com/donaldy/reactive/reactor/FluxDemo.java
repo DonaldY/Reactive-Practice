@@ -18,7 +18,7 @@ public class FluxDemo {
                 .publishOn(Schedulers.elastic())       // 线程池切换
                 .subscribe(FluxDemo::println,          // 数据消费
                         FluxDemo::println,             // 异常处理
-                        () -> {println("完成操作！");},  // 完成回调
+                        () -> { println("完成操作！"); },  // 完成回调
                         subscription -> {              // 背压操作
                             subscription.request(1); // l 是 请求数量
                         });
